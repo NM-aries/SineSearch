@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Iceland&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --mny-purple: #786fa6;
+    --mny-dark-purple: #574b90;
+
+    --mny-red: #e74c3c;
+    --mny-dark-red: #c0392b;
+
+    --mny-orange: #e67e22;
+    --mny-dark-orange: #d35400;
+
+    --mny-dark: #596174;
+    --mny-darker: #303a52;
+
+    --mny-light: #ecf0f1;
+    --mny-dark-light: #bdc3c7;
+
+    --mny-green: #1abc9c;
+    --mny-dark-green: #16a085;
+
+    --mny-gray: #95a5a6;
+    --mny-dark-gray: #7f8c8d;
+
+    --mny-blue: #3498db;
+    --mny-dark-blue: #2980b9;
+
+    --mny-gradient-bluegreen: linear-gradient(to right, var(--mny-dark-blue), var(--mny-green));
+    --mny-gradient-purple: linear-gradient(to right, var(--mny-dark-purple), var(--mny-purple));
+    --mny-gradient-blue: linear-gradient(to right, var(--mny-dark-blue), var(--mny-blue));
+
+    --mny-font-robot: 'Roboto Condensed', sans-serif;
+    --mny-font-mont: 'Montserrat', sans-serif;
+    --mny-font-poppins: 'Poppins', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    background: #000;
+    font-family: var(--mny-font-robot);
+}
+
+.mny-gradient-purple {
+    background: var(--mny-gradient-purple);
+}
+
+.mny-gradient-bluegreen {
+    background: var(--mny-gradient-bluegreen);
+}
+
+.mny-purple {
+    background-color: var(--mny-dark-purple);
+    color: var(--mny-light);
+}
+
+.navbar {
+    transition: background-color 0.5s ease-in-out, padding 0.5s ease-in-out;
+    border-bottom: 0 !important;
+}
+
+.navbar.scrolled {
+    background: var(--mny-darker) !important;
+    /* Change to your desired color */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.mny-purple {
+    box-shadow: 0px 0px 5px var(--mny-darker);
+}
+
+.navbar.mny-gradient-bluegreen a {
+    color: var(--mny-light);
+}
+
+.navbar-toggler.collapsed span {
+    color: var(--mny-light);
+}
+
+.hero {
+    position: relative;
+    height: auto;
+    background: black;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-family: var(--mny-font-robot);
+    z-index: 999;
+}
+
+.hero .container {
+    z-index: 999;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.hero::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    position: absolute;
+    z-index: 9;
+    -webkit-mask-image: linear-gradient(to bottom, #212529, transparent);
+    mask-image: linear-gradient(to bottom, #212529, transparent);
+    background-size: cover, contain;
+    background-repeat: no-repeat, no-repeat;
+    background-position: top;
+    filter: blur(2px);
+
+}
+
+.carousel-indicators [data-bs-target]{
+    height: 0.8em !important;
+    width: 0.8em !important;
+    padding: 0px; 
+    margin: 0 5px;
+    color:transparent;
+    border-radius: 50%;
+    background-clip: none;
+    background-color: var(--mny-dark-light);
+
+}
+.carousel-indicators{
+    right: 0 !important;
+    margin-right: 0 !important;
+    justify-content: end;
+    overflow: hidden !important;
+}
+
+.genre {
+    color: var(--mny-orange);
+    font-size: 1em;
+}
+
+
+.section-title {
+    font-family: var(--mny-font-poppins);
+    font-weight: normal;
+}
+
+
+
+
+.searchMovie:focus{
+    box-shadow: none !important;
+}
+
+.navbar .megamenu{ 
+    padding: 1rem;  
+    border: 0px !important;
+    transition: 0.5s ease-in-out;
+}
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+
+  .navbar .has-megamenu{position:static!important;}
+  .navbar .megamenu{left:0; right:0; width:100%; margin-top:0;  }
+
+}	
+/* ============ desktop view .end// ============ */
+
+/* ============ mobile view ============ */
+@media(max-width: 991px){
+  .navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse{
+        overflow-y: auto;
+        max-height: 90vh;
+        margin-top:10px;
+  }
+}
