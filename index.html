@@ -2,193 +2,316 @@
 <html lang="en" data-style="dark">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CineSearch</title>
-    <link rel="shortcut icon" href="assets/images/logo/icon.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>CineSearch</title>
+	<link rel="shortcut icon" href="assets/images/logo/icon.png" type="image/x-icon">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/owl.carousel.css">
+	<link rel="stylesheet" href="assets/css/owl.theme.default.css">
 
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+	<link rel="stylesheet" href="assets/css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
 
 </head>
+
 <style>
- .dropdown_menu-7 {
-    transition: 4s ease-in-out;
-  animation: rotateMenu 400ms ease-in-out forwards;
-  transform-origin: top center;
+	.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+.owl-theme .owl-controls .owl-page span {
+    background: none repeat scroll 0 0 #869791;
+    border-radius: 20px;
+    display: block;
+    height: 12px;
+    margin: 5px 7px;
+    opacity: 0.5;
+    width: 12px;
+}
+	.progress-container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
 }
 
-@-moz-keyframes rotateMenu {
-  0% {
-    transform: rotateX(-90deg);
-  }
-  70% {
-    transform: rotateX(20deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
+.progress-ring {
+  transform: rotate(-90deg);
 }
-@-webkit-keyframes rotateMenu {
-  0% {
-    transform: rotateX(-90deg);
-  }
-  70% {
-    transform: rotateX(20deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
+
+.progress-ring__circle {
+  stroke-dasharray: 314; /* Circumference of the circle (2 * pi * radius) */
+  stroke-dashoffset: 94.2; /* Adjust this value to set the percentage */
+  transition: stroke-dashoffset 1s;
 }
-@-o-keyframes rotateMenu {
-  0% {
-    transform: rotateX(-90deg);
-  }
-  70% {
-    transform: rotateX(20deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
+
+.progress-text {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+font-size: 10px;
+
 }
-@keyframes rotateMenu {
-  0% {
-    transform: rotateX(-90deg);
-  }
-  70% {
-    transform: rotateX(20deg);
-  }
-  100% {
-    transform: rotateX(0deg);
-  }
+.ratingCircle{
+	bottom: 0;
 }
 </style>
 <body>
 
 
-    <nav class="navbar navbar-expand-lg  pt-5 bg-transparent navbar-dark fixed-top navbar-custom">
-        <div class="container-fluid container-md">
-            <a class="navbar-brand" href="javascript:void(0)">CineSearch</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-5" id="">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+	<nav class="navbar navbar-expand-lg  pt-5 bg-transparent navbar-dark fixed-top navbar-custom">
+		<div class="container-fluid container-md">
+			<a class="navbar-brand" href="javascript:void(0)">CineSearch</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-5" id="">
+				<span class="navbar-toggler-icon"></span>
+			</button>
 
-            <div class="collapse navbar-collapse ms-3" id="navbar-ex-5">
-                <ul class="navbar-nav ">
-                    <li class="nav-item ">
-                        <a class="nav-link text-white" href="/"><i class="tf-icons navbar-icon bx bx-user"></i>
-                            Home
-                        </a>
-                    </li>
+			<div class="collapse navbar-collapse ms-3" id="navbar-ex-5">
+				<ul class="navbar-nav ">
+					<li class="nav-item ">
+						<a class="nav-link text-white" href="/"><i class="tf-icons navbar-icon bx bx-user"></i>
+							Home
+						</a>
+					</li>
 
-                </ul>
-                
-                <ul class="navbar-nav text-white ms-auto">
-                    <li class="nav-item dropdown has-megamenu">
-                        <a class="nav-link text-white dropdown" href="#" data-bs-toggle="dropdown" id="toggleMenu">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </a>
-                        <div class="dropdown-menu megamenu  rounded-0 dropdown_menu--animated dropdown_menu-7 " role="menu">
-                            <div class="container">
-                                <div class="input-group border-0">
-                                    <span class="input-group-text border-0 bg-transparent" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input type="search" class="form-control searchMovie border-0" placeholder="Search for a movie, tv show, person..." aria-label="Username" aria-describedby="basic-addon1">
-                                </div>
-                            </div>
-                        </div> <!-- dropdown-mega-menu.// -->
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+				</ul>
 
-    <section class="hero">
-        <div id="carouselExample" class="carousel slide carousel-fade container" data-bs-ride="carousel">
-            <ol id="carousel-indicators" class="carousel-indicators "></ol>
-            <div class="carousel-inner" style="margin-top: 200px;">
-                <div class="row text-white" id="hero-carousel">
+				<ul class="navbar-nav text-white ms-auto">
+					<li class="nav-item dropdown has-megamenu">
+						<a class="nav-link text-white dropdown" href="#" data-bs-toggle="dropdown" id="toggleMenu">
+							<i class="fa-solid fa-magnifying-glass"></i>
+						</a>
+						<div class="dropdown-menu megamenu  rounded-0 dropdown_menu--animated dropdown_menu-7 "
+							role="menu">
+							<div class="container">
+								<div class="input-group border-0">
+									<span class="input-group-text border-0 bg-transparent" id="basic-addon1"><i
+											class="fa-solid fa-magnifying-glass"></i></span>
+									<input type="search" id="searchMovie" class="form-control searchMovie border-0"
+										placeholder="Search for a movie, tv show, person..." aria-label="Username"
+										aria-describedby="basic-addon1" onchange="return searchMovie()">
+								</div>
+							</div>
+						</div> <!-- dropdown-mega-menu.// -->
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-                </div>
-            </div>
-        </div>
-    </section>
+	<section class="hero">
+		<div id="carouselExample" class="carousel slide carousel-fade container " data-bs-ride="carousel">
+			<ol id="carousel-indicators" class="carousel-indicators "></ol>
+			<div class="carousel-inner" style="margin-top: 200px;">
+				<div class="row text-white" id="hero-carousel"></div>
+			</div>
+		</div>
+	</section>
 
-    <section class="trending">
-        <div class="container pt-5">
-            <h2 class="text-white section-title">Trending </h2>
-            <div class="row">
-
-            </div>
-        </div>
-    </section>
-    <section class="vh-100 ">
-    </section>
+	<section class="nowShowing">
+		
+		  
+		<div class="container pt-5 text-center text-md-start">
+			<h2 class="section-title mb-3 text-white">Now Showing </h2>
+			<div class="position-relative">
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="movieTrailer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-xl">
-            <div class="modal-content rounded-0">
-                <div class="modal-header border-0">
-                    <h1 class="modal-title fs-3" id="MTTrailer"></h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-0">
-                    <iframe id="trailerIframe" width="100%" height="650" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-    </div>
+				<div class="owl-carousel mny position-relative mb-3" id="showingList">
+				</div>
+			</div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/mega-dropdown.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/api.js"></script>
-    <script>
-        const navbar = document.querySelector('.navbar-custom');
-        const dropdown = document.querySelector('#toggleMenu');
+		</div>
 
-        dropdown.addEventListener('show.bs.dropdown', () => {
-            navbar.classList.add('bg-dark', 'navbar-light');
-            navbar.classList.remove('navbar-light', 'bg-transparent');
-        });
 
-        dropdown.addEventListener('hide.bs.dropdown', () => {
-            navbar.classList.add('bg-transparent', 'navbar-light');
-            navbar.classList.remove('bg-dark', 'navbar-light');
-        });
-    </script>
+	</section>
 
-    <script>
-        document.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled'); // Add both classes
-                navbar.classList.remove('pt-5'); // Remove p-5 class
-            } else {
-                navbar.classList.remove('scrolled'); // Remove scrolled class
-                navbar.classList.add('pt-5'); // Add p-5 class
-            }
-        });
+	<section class="trending bg-white pt-5 pb-3 ">
+		<div class="container  text-center text-md-start">
+			<h3 class="section-title mb-3 text-dark">Trending </h3>
+			<div class="d-flex justify-content-center justify-content-md-start">
+				<label for="filter" class="switch mb-4" aria-label="Toggle Filter">
+					<input type="checkbox" id="filter" />
+					<span id="todayText">Today</span>
+					<span id="weekText">This Week</span>
+				</label>
+			</div>
 
-        function openTrailerModal(MovieTrailerTitle){
-            $('#movieTrailer').modal('show');
-            $('#MTTrailer').text(MovieTrailerTitle)
+			<div class="position-relative bg-white">
+				<div class="preloader text-center d-none" id="loaderTrending">
+					<div class="loader mb-3"></div>
+					<p>Loading</p>
+				</div>
+				<div class="owl-carousel position-relative mb-4" id="trending-results">
+				</div>
+			</div>
 
-        }
+		</div>
 
-        document.addEventListener("DOMContentLoaded", function(){
-        document.querySelectorAll('.dropdown-menu').forEach(function(element){
-        	element.addEventListener('click', function (e) {
-        		e.stopPropagation();
-        	});
-        })
-    }); 
-    </script>
+
+	</section>
+
+	<section class="vh-100 bg-dark ">
+
+	</section>
+	<!-- <section class="vh-100 bg-white ">
+		<div class="container"> 
+
+			<div id="showingList"></div>
+		</div>
+	</section> -->
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="movieTrailer" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered modal-xl">
+			<div class="modal-content rounded-0 pb-0 bg-black ">
+				<div class="modal-header border-0 text-white">
+					<h1 class="modal-title fs-3" id="MTTrailer"></h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body p-2">
+
+					<div class="ratio ratio-16x9 modalTrailerContainer">
+						<iframe id="trailerVideo" src="" frameborder="0"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+							allowfullscreen>
+						</iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+	<footer class="bg-white">
+		<div class="container d-flex flex-wrap container justify-content-between align-items-center py-4 border-top">
+			<div class="col-md-4 d-flex align-items-center">
+				<a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+				  <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
+				</a>
+				<span class="mb-3 mb-md-0 text-body-secondary">© 2024 Develop By: MikeChuyens</span>
+			  </div>
+		  
+			  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+				<li class="ms-3"><a class="text-body-secondary fs-4" href="#"><i class="fa-brands fa-github"></i></a></li>
+				<li class="ms-3"><a class="text-body-secondary fs-4" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+				<li class="ms-3"><a class="text-body-secondary fs-4" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+			  </ul>
+		</div>
+	  </footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+	<script src="assets/js/owl.carousel.js"></script>
+
+	<script src="assets/js/mega-dropdown.js"></script>
+	<!-- <script src="assets/js/main.js"></script> -->
+	<script src="assets/js/api.js"></script>
+	<script>
+		$(document).ready(function () {
+
+
+			let isProcessing = false; // Prevent multiple rapid triggers
+
+			// Ensure clicks on both text and checkbox trigger toggle
+			$('#todayText, #weekText, #filter').on('click', function (e) {
+				$('#loaderTrending').addClass('d-none');
+
+				if (isProcessing) return; // Prevent multiple triggers during processing
+
+				// Determine if the checkbox should toggle
+				const checkbox = $('#filter');
+				const isChecked = checkbox.prop('checked');
+
+				if (e.target.id === 'todayText' && !isChecked) {
+					// Prevent redundant toggle when clicking the active text
+					return;
+				} else if (e.target.id === 'weekText' && isChecked) {
+					// Prevent redundant toggle when clicking the active text
+					return;
+				}
+
+				// Process the toggle
+				isProcessing = true;
+
+				checkbox.prop('checked', !isChecked); // Toggle the state
+				if (!isChecked) {
+					$('#loaderTrending').removeClass('d-none');
+					fetchTrendingThisWeek();
+					setTimeout(() => {
+						$('#loaderTrending').addClass('d-none');
+
+					}, 2000)
+				} else {
+					$('#loaderTrending').removeClass('d-none');
+					fetchTrendingToday();
+					setTimeout(() => {
+						$('#loaderTrending').addClass('d-none');
+
+					}, 2000)
+				}
+				isProcessing = false; // Reset flag
+				// Adjust delay as needed
+			});
+		})
+
+
+		const navbar = document.querySelector('.navbar-custom');
+		const dropdown = document.querySelector('#toggleMenu');
+
+		dropdown.addEventListener('show.bs.dropdown', () => {
+			navbar.classList.add('bg-dark', 'navbar-light');
+			navbar.classList.remove('navbar-light', 'bg-transparent');
+		});
+
+		dropdown.addEventListener('hide.bs.dropdown', () => {
+			navbar.classList.add('bg-transparent', 'navbar-light');
+			navbar.classList.remove('bg-dark', 'navbar-light');
+		});
+
+		$('#movieTrailer').on('hidden.bs.modal', function (e) {
+			document.getElementById('trailerVideo').src = '';
+		})
+	</script>
+
+	<script>
+		
+
+		document.addEventListener('scroll', () => {
+			const navbar = document.querySelector('.navbar');
+			if (window.scrollY > 50) {
+				navbar.classList.add('scrolled','p-3'); // Add both classes
+				navbar.classList.remove('pt-5'); // Remove p-5 class
+			} else {
+				navbar.classList.remove('scrolled','p-3'); // Remove scrolled class
+				navbar.classList.add('pt-5'); // Add p-5 class
+			}
+		});
+
+
+
+		function openTrailerModal(MovieTrailerTitle) {
+			$('#movieTrailer').modal('show');
+			$('#MTTrailer').text(MovieTrailerTitle);
+		}
+
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll('.dropdown-menu').forEach(function (element) {
+				element.addEventListener('click', function (e) {
+					e.stopPropagation();
+				});
+			})
+		});
+
+		// function searchMovie() {
+		// 	const param1 = $('#searchMovie').val();
+		// 	const newPageUrl = `search_result.html?param1=${encodeURIComponent(param1)}`;
+
+		// 	// Redirect to the new page
+		// 	window.location.href = newPageUrl;
+		// }
+	</script>
 
 </body>
 
